@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GYMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Coffe">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProductPrice" Type="int" />
+    <Property Name="ProductType" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Diet">
+    <Key>
+      <PropertyRef Name="DietID" />
+    </Key>
+    <Property Name="DietID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Calories" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Meals">
+    <Key>
+      <PropertyRef Name="MealID" />
+    </Key>
+    <Property Name="MealID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DietID" Type="int" />
+    <Property Name="Breakfast" Type="nvarchar(max)" />
+    <Property Name="Snack1" Type="nvarchar(max)" />
+    <Property Name="Lunch" Type="nvarchar(max)" />
+    <Property Name="Snack2" Type="nvarchar(max)" />
+    <Property Name="Dinner" Type="nvarchar(max)" />
+    <Property Name="Day" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Members">
+    <Key>
+      <PropertyRef Name="MemberID" />
+    </Key>
+    <Property Name="MemberName" Type="nvarchar" MaxLength="50" />
+    <Property Name="MemberAge" Type="int" />
+    <Property Name="MemberGender" Type="nvarchar" MaxLength="25" />
+    <Property Name="EnrollmentDate" Type="date" />
+    <Property Name="Paid" Type="int" />
+    <Property Name="RemainingAmount" Type="int" />
+    <Property Name="SubscribtionID" Type="int" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+    <Property Name="MemberID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ShiftIncome">
+    <Key>
+      <PropertyRef Name="ShiftID" />
+    </Key>
+    <Property Name="Date" Type="date" />
+    <Property Name="CoffeIncome" Type="int" />
+    <Property Name="SubscribesIncome" Type="int" />
+    <Property Name="ElectricityBills" Type="int" />
+    <Property Name="WaterBills" Type="int" />
+    <Property Name="GasBills" Type="int" />
+    <Property Name="OtherIncome" Type="int" />
+    <Property Name="Repairs" Type="int" />
+    <Property Name="ShiftID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NetProfit" Type="int" />
+    <Property Name="Shift" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Subscribtion">
+    <Key>
+      <PropertyRef Name="SubscribtionID" />
+    </Key>
+    <Property Name="SubscribtionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Type" Type="nvarchar" MaxLength="50" />
+    <Property Name="Price" Type="int" />
+  </EntityType>
+  <EntityType Name="Supplements">
+    <Key>
+      <PropertyRef Name="SupplementID" />
+    </Key>
+    <Property Name="SupplementID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SupplementName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Price" Type="int" />
+    <Property Name="Type" Type="nvarchar" MaxLength="50" />
+    <Property Name="Timing" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TrainingDays">
+    <Key>
+      <PropertyRef Name="DayID" />
+    </Key>
+    <Property Name="DayName" Type="nvarchar" MaxLength="50" />
+    <Property Name="TargetMuscle" Type="nvarchar" MaxLength="50" />
+    <Property Name="Groups" Type="int" />
+    <Property Name="Repetations" Type="int" />
+    <Property Name="Image" Type="image" />
+    <Property Name="TrainingDesc" Type="nvarchar(max)" />
+    <Property Name="LevelID" Type="int" />
+    <Property Name="DayID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TrainingLevel">
+    <Key>
+      <PropertyRef Name="LevelID" />
+    </Key>
+    <Property Name="LevelID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LevelName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="userID" />
+    </Key>
+    <Property Name="userID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Passowrd" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Workers">
+    <Key>
+      <PropertyRef Name="WorkerID" />
+    </Key>
+    <Property Name="WorkerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="WorkerName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Salary" Type="int" />
+    <Property Name="HireDate" Type="date" />
+    <Property Name="Position" Type="nvarchar" MaxLength="50" />
+    <Property Name="Birhtdate" Type="date" />
+    <Property Name="Shift" Type="nvarchar" MaxLength="50" />
+    <Property Name="Phone" Type="int" />
+  </EntityType>
+  <Association Name="FK__TrainingD__Level__160F4887">
+    <End Role="TrainingLevel" Type="Self.TrainingLevel" Multiplicity="0..1" />
+    <End Role="TrainingDays" Type="Self.TrainingDays" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TrainingLevel">
+        <PropertyRef Name="LevelID" />
+      </Principal>
+      <Dependent Role="TrainingDays">
+        <PropertyRef Name="LevelID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_composit">
+    <End Role="Diet" Type="Self.Diet" Multiplicity="0..1" />
+    <End Role="Meals" Type="Self.Meals" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Diet">
+        <PropertyRef Name="DietID" />
+      </Principal>
+      <Dependent Role="Meals">
+        <PropertyRef Name="DietID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PersonOrder">
+    <End Role="Subscribtion" Type="Self.Subscribtion" Multiplicity="0..1" />
+    <End Role="Members" Type="Self.Members" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subscribtion">
+        <PropertyRef Name="SubscribtionID" />
+      </Principal>
+      <Dependent Role="Members">
+        <PropertyRef Name="SubscribtionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="GYMModelStoreContainer">
+    <EntitySet Name="Coffe" EntityType="Self.Coffe" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Diet" EntityType="Self.Diet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Meals" EntityType="Self.Meals" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Members" EntityType="Self.Members" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ShiftIncome" EntityType="Self.ShiftIncome" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Subscribtion" EntityType="Self.Subscribtion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Supplements" EntityType="Self.Supplements" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TrainingDays" EntityType="Self.TrainingDays" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TrainingLevel" EntityType="Self.TrainingLevel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Workers" EntityType="Self.Workers" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__TrainingD__Level__160F4887" Association="Self.FK__TrainingD__Level__160F4887">
+      <End Role="TrainingLevel" EntitySet="TrainingLevel" />
+      <End Role="TrainingDays" EntitySet="TrainingDays" />
+    </AssociationSet>
+    <AssociationSet Name="FK_composit" Association="Self.FK_composit">
+      <End Role="Diet" EntitySet="Diet" />
+      <End Role="Meals" EntitySet="Meals" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PersonOrder" Association="Self.FK_PersonOrder">
+      <End Role="Subscribtion" EntitySet="Subscribtion" />
+      <End Role="Members" EntitySet="Members" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

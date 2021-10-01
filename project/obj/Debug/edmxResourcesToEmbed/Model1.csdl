@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GYMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Coffe">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProductPrice" Type="Int32" />
+    <Property Name="ProductType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Diet">
+    <Key>
+      <PropertyRef Name="DietID" />
+    </Key>
+    <Property Name="DietID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Calories" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Meals" Relationship="Self.FK_composit" FromRole="Diet" ToRole="Meals" />
+  </EntityType>
+  <EntityType Name="Meal">
+    <Key>
+      <PropertyRef Name="MealID" />
+    </Key>
+    <Property Name="MealID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DietID" Type="Int32" />
+    <Property Name="Breakfast" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Snack1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Lunch" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Snack2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Dinner" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Day" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Diet" Relationship="Self.FK_composit" FromRole="Meals" ToRole="Diet" />
+  </EntityType>
+  <EntityType Name="Member">
+    <Key>
+      <PropertyRef Name="MemberID" />
+    </Key>
+    <Property Name="MemberID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MemberName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MemberAge" Type="Int32" />
+    <Property Name="MemberGender" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+    <Property Name="EnrollmentDate" Type="DateTime" Precision="0" />
+    <Property Name="Paid" Type="Int32" />
+    <Property Name="RemainingAmount" Type="Int32" />
+    <Property Name="SubscribtionID" Type="Int32" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Subscribtion" Relationship="Self.FK_PersonOrder" FromRole="Members" ToRole="Subscribtion" />
+  </EntityType>
+  <EntityType Name="Subscribtion">
+    <Key>
+      <PropertyRef Name="SubscribtionID" />
+    </Key>
+    <Property Name="SubscribtionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="Int32" />
+    <NavigationProperty Name="Members" Relationship="Self.FK_PersonOrder" FromRole="Subscribtion" ToRole="Members" />
+  </EntityType>
+  <EntityType Name="Supplement">
+    <Key>
+      <PropertyRef Name="SupplementID" />
+    </Key>
+    <Property Name="SupplementID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SupplementName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="Int32" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Timing" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TrainingDay">
+    <Key>
+      <PropertyRef Name="DayID" />
+    </Key>
+    <Property Name="DayName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TargetMuscle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Groups" Type="Int32" />
+    <Property Name="Repetations" Type="Int32" />
+    <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="TrainingDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LevelID" Type="Int32" />
+    <Property Name="DayID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="TrainingLevel" Relationship="Self.FK__TrainingD__Level__160F4887" FromRole="TrainingDays" ToRole="TrainingLevel" />
+  </EntityType>
+  <EntityType Name="TrainingLevel">
+    <Key>
+      <PropertyRef Name="LevelID" />
+    </Key>
+    <Property Name="LevelID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LevelName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="TrainingDays" Relationship="Self.FK__TrainingD__Level__160F4887" FromRole="TrainingLevel" ToRole="TrainingDays" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="userID" />
+    </Key>
+    <Property Name="userID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Passowrd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Worker">
+    <Key>
+      <PropertyRef Name="WorkerID" />
+    </Key>
+    <Property Name="WorkerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="WorkerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Salary" Type="Int32" />
+    <Property Name="HireDate" Type="DateTime" Precision="0" />
+    <Property Name="Position" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Birhtdate" Type="DateTime" Precision="0" />
+    <Property Name="Shift" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="Int32" />
+  </EntityType>
+  <Association Name="FK_composit">
+    <End Role="Diet" Type="Self.Diet" Multiplicity="0..1" />
+    <End Role="Meals" Type="Self.Meal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Diet">
+        <PropertyRef Name="DietID" />
+      </Principal>
+      <Dependent Role="Meals">
+        <PropertyRef Name="DietID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PersonOrder">
+    <End Role="Subscribtion" Type="Self.Subscribtion" Multiplicity="0..1" />
+    <End Role="Members" Type="Self.Member" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subscribtion">
+        <PropertyRef Name="SubscribtionID" />
+      </Principal>
+      <Dependent Role="Members">
+        <PropertyRef Name="SubscribtionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TrainingD__Level__160F4887">
+    <End Role="TrainingLevel" Type="Self.TrainingLevel" Multiplicity="0..1" />
+    <End Role="TrainingDays" Type="Self.TrainingDay" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TrainingLevel">
+        <PropertyRef Name="LevelID" />
+      </Principal>
+      <Dependent Role="TrainingDays">
+        <PropertyRef Name="LevelID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="GYMEntities2" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Coffes" EntityType="Self.Coffe" />
+    <EntitySet Name="Diets" EntityType="Self.Diet" />
+    <EntitySet Name="Meals" EntityType="Self.Meal" />
+    <EntitySet Name="Members" EntityType="Self.Member" />
+    <EntitySet Name="Subscribtions" EntityType="Self.Subscribtion" />
+    <EntitySet Name="Supplements" EntityType="Self.Supplement" />
+    <EntitySet Name="TrainingDays" EntityType="Self.TrainingDay" />
+    <EntitySet Name="TrainingLevels" EntityType="Self.TrainingLevel" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <EntitySet Name="Workers" EntityType="Self.Worker" />
+    <AssociationSet Name="FK_composit" Association="Self.FK_composit">
+      <End Role="Diet" EntitySet="Diets" />
+      <End Role="Meals" EntitySet="Meals" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PersonOrder" Association="Self.FK_PersonOrder">
+      <End Role="Subscribtion" EntitySet="Subscribtions" />
+      <End Role="Members" EntitySet="Members" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TrainingD__Level__160F4887" Association="Self.FK__TrainingD__Level__160F4887">
+      <End Role="TrainingLevel" EntitySet="TrainingLevels" />
+      <End Role="TrainingDays" EntitySet="TrainingDays" />
+    </AssociationSet>
+    <EntitySet Name="ShiftIncomes" EntityType="GYMModel.ShiftIncome" />
+  </EntityContainer>
+  <EntityType Name="ShiftIncome">
+    <Key>
+      <PropertyRef Name="ShiftID" />
+    </Key>
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="CoffeIncome" Type="Int32" />
+    <Property Name="SubscribesIncome" Type="Int32" />
+    <Property Name="ElectricityBills" Type="Int32" />
+    <Property Name="WaterBills" Type="Int32" />
+    <Property Name="GasBills" Type="Int32" />
+    <Property Name="OtherIncome" Type="Int32" />
+    <Property Name="Repairs" Type="Int32" />
+    <Property Name="Shift" Type="String" />
+    <Property Name="ShiftID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NetProfit" Type="Int32" />
+  </EntityType>
+</Schema>

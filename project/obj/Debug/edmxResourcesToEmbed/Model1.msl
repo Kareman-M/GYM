@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="GYMModelStoreContainer" CdmEntityContainer="GYMEntities2">
+    <EntitySetMapping Name="Coffes">
+      <EntityTypeMapping TypeName="GYMModel.Coffe">
+        <MappingFragment StoreEntitySet="Coffe">
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="ProductPrice" ColumnName="ProductPrice" />
+          <ScalarProperty Name="ProductType" ColumnName="ProductType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Diets">
+      <EntityTypeMapping TypeName="GYMModel.Diet">
+        <MappingFragment StoreEntitySet="Diet">
+          <ScalarProperty Name="DietID" ColumnName="DietID" />
+          <ScalarProperty Name="Calories" ColumnName="Calories" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Meals">
+      <EntityTypeMapping TypeName="GYMModel.Meal">
+        <MappingFragment StoreEntitySet="Meals">
+          <ScalarProperty Name="MealID" ColumnName="MealID" />
+          <ScalarProperty Name="DietID" ColumnName="DietID" />
+          <ScalarProperty Name="Breakfast" ColumnName="Breakfast" />
+          <ScalarProperty Name="Snack1" ColumnName="Snack1" />
+          <ScalarProperty Name="Lunch" ColumnName="Lunch" />
+          <ScalarProperty Name="Snack2" ColumnName="Snack2" />
+          <ScalarProperty Name="Dinner" ColumnName="Dinner" />
+          <ScalarProperty Name="Day" ColumnName="Day" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Members">
+      <EntityTypeMapping TypeName="GYMModel.Member">
+        <MappingFragment StoreEntitySet="Members">
+          <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+          <ScalarProperty Name="MemberName" ColumnName="MemberName" />
+          <ScalarProperty Name="MemberAge" ColumnName="MemberAge" />
+          <ScalarProperty Name="MemberGender" ColumnName="MemberGender" />
+          <ScalarProperty Name="EnrollmentDate" ColumnName="EnrollmentDate" />
+          <ScalarProperty Name="Paid" ColumnName="Paid" />
+          <ScalarProperty Name="RemainingAmount" ColumnName="RemainingAmount" />
+          <ScalarProperty Name="SubscribtionID" ColumnName="SubscribtionID" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Subscribtions">
+      <EntityTypeMapping TypeName="GYMModel.Subscribtion">
+        <MappingFragment StoreEntitySet="Subscribtion">
+          <ScalarProperty Name="SubscribtionID" ColumnName="SubscribtionID" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Supplements">
+      <EntityTypeMapping TypeName="GYMModel.Supplement">
+        <MappingFragment StoreEntitySet="Supplements">
+          <ScalarProperty Name="SupplementID" ColumnName="SupplementID" />
+          <ScalarProperty Name="SupplementName" ColumnName="SupplementName" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Timing" ColumnName="Timing" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TrainingDays">
+      <EntityTypeMapping TypeName="GYMModel.TrainingDay">
+        <MappingFragment StoreEntitySet="TrainingDays">
+          <ScalarProperty Name="DayName" ColumnName="DayName" />
+          <ScalarProperty Name="TargetMuscle" ColumnName="TargetMuscle" />
+          <ScalarProperty Name="Groups" ColumnName="Groups" />
+          <ScalarProperty Name="Repetations" ColumnName="Repetations" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="TrainingDesc" ColumnName="TrainingDesc" />
+          <ScalarProperty Name="LevelID" ColumnName="LevelID" />
+          <ScalarProperty Name="DayID" ColumnName="DayID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TrainingLevels">
+      <EntityTypeMapping TypeName="GYMModel.TrainingLevel">
+        <MappingFragment StoreEntitySet="TrainingLevel">
+          <ScalarProperty Name="LevelID" ColumnName="LevelID" />
+          <ScalarProperty Name="LevelName" ColumnName="LevelName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="GYMModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Passowrd" ColumnName="Passowrd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Workers">
+      <EntityTypeMapping TypeName="GYMModel.Worker">
+        <MappingFragment StoreEntitySet="Workers">
+          <ScalarProperty Name="WorkerID" ColumnName="WorkerID" />
+          <ScalarProperty Name="WorkerName" ColumnName="WorkerName" />
+          <ScalarProperty Name="Salary" ColumnName="Salary" />
+          <ScalarProperty Name="HireDate" ColumnName="HireDate" />
+          <ScalarProperty Name="Position" ColumnName="Position" />
+          <ScalarProperty Name="Birhtdate" ColumnName="Birhtdate" />
+          <ScalarProperty Name="Shift" ColumnName="Shift" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShiftIncomes">
+      <EntityTypeMapping TypeName="GYMModel.ShiftIncome">
+        <MappingFragment StoreEntitySet="ShiftIncome">
+          <ScalarProperty Name="NetProfit" ColumnName="NetProfit" />
+          <ScalarProperty Name="ShiftID" ColumnName="ShiftID" />
+          <ScalarProperty Name="Shift" ColumnName="Shift" />
+          <ScalarProperty Name="Repairs" ColumnName="Repairs" />
+          <ScalarProperty Name="OtherIncome" ColumnName="OtherIncome" />
+          <ScalarProperty Name="GasBills" ColumnName="GasBills" />
+          <ScalarProperty Name="WaterBills" ColumnName="WaterBills" />
+          <ScalarProperty Name="ElectricityBills" ColumnName="ElectricityBills" />
+          <ScalarProperty Name="SubscribesIncome" ColumnName="SubscribesIncome" />
+          <ScalarProperty Name="CoffeIncome" ColumnName="CoffeIncome" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
